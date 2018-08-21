@@ -1,0 +1,8 @@
+<HTML>
+<HEAD>
+<TITLE>HELLO LDAP</TITLE>
+</HEAD>
+<BODY>
+	<h3>HELLO LDAP</h3>
+</BODY>
+</HTML>

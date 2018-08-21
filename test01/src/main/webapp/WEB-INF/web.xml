@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<display-name>test01</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>testServlet</servlet-name>
+		<servlet-class>test01.action.TestServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>testServlet</servlet-name>
+		<url-pattern>/testServlet</url-pattern>
+	</servlet-mapping>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>admin</web-resource-name>
+			<url-pattern>/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>ldapgroup1</role-name>
+			<role-name>ldapgroup2</role-name>
+		</auth-constraint>
+	</security-constraint>
+
+
+	<security-role>
+		<role-name>administrator</role-name>
+	</security-role>
+	<security-role>
+		<role-name>ldapgroup1</role-name>
+	</security-role>
+	<security-role>
+		<role-name>ldapgroup2</role-name>
+	</security-role>
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<form-login-config>
+			<form-login-page>/admin/login.jsp</form-login-page>
+			<form-error-page>/admin/login-error.jsp</form-error-page>
+		</form-login-config>
+	</login-config>
+</web-app>
